@@ -1,5 +1,5 @@
 import { NuxtAxiosInstance } from '@nuxtjs/axios';
-import { serializeParams } from '~/utils';
+import { serializeParams } from '~/helpers';
 import createRepository from './repository';
 
 interface Params {
