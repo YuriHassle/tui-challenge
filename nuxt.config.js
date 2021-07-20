@@ -15,10 +15,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/css/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/repository'],
+  plugins: [
+    '~/plugins/repository',
+    { src: '~/plugins/vue-calendar.ts', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -45,7 +48,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://test.api.amadeus.com/v2/',
-    headers: { Authorization: 'Bearer IkoGVqJRzaKNwn2eqKYMzG1xZpMj' },
+    headers: { Authorization: 'Bearer jWxQf2FElbUJpFtIT0zwFXjG3KhC' },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
