@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DestinationSearch />
+    <DestinationSearchCard />
   </div>
 </template>
 
