@@ -5,8 +5,8 @@ export default ($axios: NuxtAxiosInstance) => ({
     return $axios.$get(`${url}`);
   },
 
-  post(url: string, payload: object) {
-    return $axios.$post(`${url}`, payload);
+  post(url: string, payload: object, config?: object) {
+    return $axios.$post(`${url}`, payload, config);
   },
 
   put(url: string, payload: object) {

@@ -1,20 +1,27 @@
 import { NuxtAxiosInstance } from '@nuxtjs/axios';
 import { serializeParams } from '~/helpers';
 import createRepository from './repository';
+import { Search as getOffersParams } from '~/store/MySearch/types';
+import { Credentials } from '~/store/Auth/types';
 
-interface Params {
-  [key: string]: string;
-}
-
-const hotelsURL = '/shopping/hotel-offers';
+const authURL = '/v1/security/oauth2/token';
+const hotelsURL = '/v2/shopping/hotel-offers';
 
 export default ($axios: NuxtAxiosInstance) => () => ({
-  getOffers(queryParams: Params) {
+  getAccessToken(body: Credentials) {
+    return createRepository($axios).post(authURL, body, {
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+    });
+  },
+
+  getOffers(queryParams: getOffersParams) {
     const params = serializeParams(queryParams);
     return createRepository($axios).get(`${hotelsURL}${params}`);
   },
 
-  getOffersByHotel(queryParams: Params) {
+  getOffersByHotel(queryParams: { hotelId: number }) {
     const params = serializeParams(queryParams);
     return createRepository($axios).get(`${hotelsURL}/by-hotel${params}`);
   },
