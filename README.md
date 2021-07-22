@@ -8,9 +8,10 @@ $ yarn install
 
 # rodar em localhost:3000
 $ yarn dev
+```
 
 ## Para acessar a demo:
-https://tui-challenge.vercel.app
+<https://tui-challenge.vercel.app>
 
 ------------------------------------------------
 
