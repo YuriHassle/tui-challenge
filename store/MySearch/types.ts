@@ -1,4 +1,4 @@
-import { MutationTree, ActionTree, ActionContext } from 'vuex';
+import { MutationTree, ActionTree } from 'vuex';
 
 export interface Search {
   latitude: number;
@@ -7,6 +7,8 @@ export interface Search {
   adults: number;
   checkInDate: string;
   checkOutDate: string;
+  view: string;
+  sort: string;
 }
 
 export interface State {
@@ -24,5 +26,5 @@ export interface MutationsInterface extends MutationTree<RootState> {
 }
 
 export interface Actions extends ActionTree<RootState, RootState> {
-  fetchOffers(context: any, payload: object): Promise<void>;
+  fetchOffers(context: any, payload: Search): Promise<void>;
 }
