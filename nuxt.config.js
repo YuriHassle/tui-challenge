@@ -20,6 +20,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/repository',
+    '~/plugins/axios',
     { src: '~/plugins/vue-calendar.ts', mode: 'client' },
   ],
 
@@ -43,12 +44,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://test.api.amadeus.com/v2/',
-    headers: { Authorization: 'Bearer jWxQf2FElbUJpFtIT0zwFXjG3KhC' },
+    baseURL: 'https://test.api.amadeus.com',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
