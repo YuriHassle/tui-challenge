@@ -4,7 +4,7 @@
       v-model="input"
       @input="handleInput"
       class="input"
-      placeholder="Search location"
+      placeholder="Cidade"
     />
     <div v-if="cityList.length > 0 && input && !reset">
       <ul class="input__search-box">
@@ -23,14 +23,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
-
-  interface City {
-    name: string;
-    admin_name: string;
-    country: string;
-    latitude: string;
-    longitude: string;
-  }
+  import { City } from '~/helpers/types';
 
   export default Vue.extend({
     props: {
@@ -73,7 +66,7 @@
     order: 1;
     align-self: stretch;
     flex-grow: 0;
-    margin: 24px 0px;
+    margin: 6px 0px;
     font-family: TUITypeLight LATN;
     font-size: 20px;
     line-height: 24px;
@@ -88,6 +81,7 @@
   .input__search-box {
     background: #ffffff;
     border-radius: 3px;
+    padding: 10px 10px;
   }
 
   .input__search-item {
@@ -99,7 +93,7 @@
     font-size: 20px;
     line-height: 24px;
     color: #092a5e;
-
+    margin-bottom: 0.4rem;
     &:hover {
       background: #c2e6fa;
       cursor: pointer;

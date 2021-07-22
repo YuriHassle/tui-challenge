@@ -5,11 +5,12 @@
       class="input"
       @click="showDatePicker = !showDatePicker"
       placeholder="Quando você quer ir?"
+      :value="selectedDate"
     />
     <vc-date-picker
       v-if="showDatePicker"
       v-model="range"
-      :rows="2"
+      :columns="2"
       is-range
       @input="setDateRange"
     />
@@ -18,7 +19,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import { getTomorrowDate } from '~/helpers';
+  import { getTomorrowDate, formatDateToYearMonthDay } from '~/helpers';
 
   export default Vue.extend({
     data() {
@@ -30,7 +31,13 @@
         },
       };
     },
-    computed: {},
+    computed: {
+      selectedDate() {
+        const formattedStartDate = formatDateToYearMonthDay(this.range.start);
+        const formattedEndDate = formatDateToYearMonthDay(this.range.end);
+        return `${formattedStartDate} ~ ${formattedEndDate}`;
+      },
+    },
     methods: {
       setDateRange() {
         this.showDatePicker = false;
@@ -56,7 +63,7 @@
     order: 1;
     align-self: stretch;
     flex-grow: 0;
-    margin: 24px 0px;
+    margin: 6px 0px;
     font-family: TUITypeLight LATN;
     font-size: 20px;
     line-height: 24px;

@@ -1,13 +1,11 @@
 <template>
   <div class="container">
-    <button
+    <Button
       name="guests"
       id="guests"
-      class="button"
-      @click="showMenu = !showMenu"
-    >
-      Quantos adultos?
-    </button>
+      :label="'Quantos Adultos?'"
+      @handleButtonClick="showMenu = !showMenu"
+    />
     <ul v-if="showMenu" class="button__menu">
       <li
         v-for="guestQtd in 4"
@@ -46,39 +44,25 @@
 </script>
 
 <style scoped lang="scss">
-  .container {
-    position: relative;
-
-    &:hover .button {
-      background-color: #3e8e41;
-    }
-  }
-  .button {
-    background-color: #04aa6d;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
   .button__menu {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
   .button__menu-item {
-    color: black;
+    color: #092a5e;
     padding: 12px 16px;
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
-      background-color: #ddd;
+      background-color: #c2e6fa;
     }
   }
 
   .button__menu-item--active {
-    background-color: rgb(74, 129, 201);
+    background-color: #c2e6fa;
   }
 </style>
