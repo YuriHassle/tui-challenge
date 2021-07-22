@@ -1,8 +1,4 @@
-interface Params {
-  [key: string]: string;
-}
-
-export function serializeParams(params: Params) {
+export function serializeParams(params: any) {
   if (!params) return '';
 
   let queryString = '?';
