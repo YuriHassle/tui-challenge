@@ -10,7 +10,7 @@ $ yarn install
 $ yarn dev
 
 ## Para acessar a demo:
-[https://tui-challenge.vercel.app/](https://tui-challenge.vercel.app/)
+https://tui-challenge.vercel.app
 
 ------------------------------------------------
 
